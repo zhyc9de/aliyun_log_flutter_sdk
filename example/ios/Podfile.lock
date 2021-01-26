@@ -1,0 +1,29 @@
+PODS:
+  - aliyun_log_flutter_sdk (0.0.1):
+    - AliyunLogProducer (~> 2.2.7)
+    - Flutter
+  - AliyunLogProducer (2.2.7)
+  - Flutter (1.0.0)
+
+DEPENDENCIES:
+  - aliyun_log_flutter_sdk (from `.symlinks/plugins/aliyun_log_flutter_sdk/ios`)
+  - Flutter (from `Flutter`)
+
+SPEC REPOS:
+  trunk:
+    - AliyunLogProducer
+
+EXTERNAL SOURCES:
+  aliyun_log_flutter_sdk:
+    :path: ".symlinks/plugins/aliyun_log_flutter_sdk/ios"
+  Flutter:
+    :path: Flutter
+
+SPEC CHECKSUMS:
+  aliyun_log_flutter_sdk: 72f0987f990e1ebcb6d1159562e37da5f7be6e3a
+  AliyunLogProducer: 2c67ac5ab246fbdbbd98c7d4adddaba9ac2e3ef2
+  Flutter: 0e3d915762c693b495b44d77113d4970485de6ec
+
+PODFILE CHECKSUM: aafe91acc616949ddb318b77800a7f51bffa2a4c
+
+COCOAPODS: 1.10.0
