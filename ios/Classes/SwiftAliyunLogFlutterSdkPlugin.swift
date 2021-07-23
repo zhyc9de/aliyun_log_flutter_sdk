@@ -54,17 +54,23 @@ public class SwiftAliyunLogFlutterSdkPlugin: NSObject, FlutterPlugin {
             let params = call.arguments as! [String];
             logClient = AliyunLog(endpoint: params[0], project: params[1], logstore: params[2], accessKeyID: params[3], accessKeySecret: params[4])
             result(true)
-        } else if (call.method == "create") {
-            logClient!.create()
+        } 
+        guard let client = logClient else {
+            result(false)
+            return
+        }
+
+        if (call.method == "create") {
+            client.create()
             result(nil)
         } else if (call.method == "setTopic") {
-            logClient!.setTopic(topic: call.arguments as! String)
+            client.setTopic(topic: call.arguments as! String)
             result(nil)
         } else if (call.method == "addTag") {
-            logClient!.addTag(content: call.arguments as! [String: String])
+            client.addTag(content: call.arguments as! [String: String])
             result(nil)
         } else if (call.method == "addLog") {
-            result(logClient!.addLog(content: call.arguments as! [String: String]))
+            result(client.addLog(content: call.arguments as! [String: String]))
         } else {
             result(nil)
         }

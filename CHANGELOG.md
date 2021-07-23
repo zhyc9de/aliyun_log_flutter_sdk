@@ -1,3 +1,7 @@
+## 0.0.2
+
+* migrating to null safety
+* [IOS] prevent `add log` before `create`
 ## 0.0.1
 
-* TODO: Describe initial release.
+* Support Android and IOS
