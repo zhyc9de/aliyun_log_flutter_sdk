@@ -1,6 +1,6 @@
 name: aliyun_log_flutter_sdk
-description: Log service flutter producer.
-version: 0.0.1
+description: Aliyun Log service producer For flutter.
+version: 0.0.2
 repository: https://github.com/zhyc9de/aliyun_log_flutter_sdk
 
 environment:
