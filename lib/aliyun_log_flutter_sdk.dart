@@ -19,7 +19,7 @@ class AliyunLogFlutterSdk {
     await _channel.invokeMethod('addTag', content);
   }
 
-  static addLog(String name, [Map<String, String> content]) async {
+  static addLog(String name, [Map<String, String>? content]) async {
     if (content == null) content = {};
     content["name"] = name;
     content["gmt_create"] = "${DateTime.now().millisecondsSinceEpoch ~/ 1000}";
