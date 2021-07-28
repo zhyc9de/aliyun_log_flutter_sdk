@@ -11,7 +11,7 @@ import io.flutter.util.PathUtils.getFilesDir
 
 class AliyunLog(context: Context, endpoint: String, project: String, logstore: String, accessKeyID: String, accessKeySecret: String) {
     private var mLogConfig: LogProducerConfig = LogProducerConfig(endpoint, project, logstore, accessKeyID, accessKeySecret)
-    private lateinit var mLogClient: LogProducerClient
+    private var mLogClient: LogProducerClient? = null
 
     init {
         // 设置默认https
@@ -48,7 +48,7 @@ class AliyunLog(context: Context, endpoint: String, project: String, logstore: S
         return try {
             val log = Log()
             tags.forEach { (k, v) -> log.putContent(k, v) }
-            mLogClient.addLog(log, 0).isLogProducerResultOk
+            mLogClient?.addLog(log, 0)?.isLogProducerResultOk!!
         } catch (e: Throwable) {
             e("AliyunLog", "#addLog", e)
             false

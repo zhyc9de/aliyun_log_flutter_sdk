@@ -15,7 +15,7 @@ class AliyunLogFlutterSdkPlugin : FlutterPlugin, MethodCallHandler {
     /// This local reference serves to register the plugin with the Flutter Engine and unregister it
     /// when the Flutter Engine is detached from the Activity
     private lateinit var channel: MethodChannel
-    private lateinit var logClient: AliyunLog
+    private var logClient: AliyunLog? = null
     private lateinit var context: Context
 
     override fun onAttachedToEngine(@NonNull flutterPluginBinding: FlutterPlugin.FlutterPluginBinding) {
@@ -31,16 +31,16 @@ class AliyunLogFlutterSdkPlugin : FlutterPlugin, MethodCallHandler {
             logClient = AliyunLog(context, args[0], args[1], args[2], args[3], args[4])
             result.success(null)
         } else if (call.method == "create") {
-            logClient.create()
+            logClient?.create()
             result.success(null)
         } else if (call.method == "setTopic") {
-            logClient.setTopic(call.arguments as String)
+            logClient?.setTopic(call.arguments as String)
             result.success(null)
         } else if (call.method == "addTag") {
-            logClient.addTag(call.arguments as Map<String, String>)
+            logClient?.addTag(call.arguments as Map<String, String>)
             result.success(null)
         } else if (call.method == "addLog") {
-            logClient.addLog(call.arguments as Map<String, String>)
+            logClient?.addLog(call.arguments as Map<String, String>)
             result.success(null)
         } else {
             result.notImplemented()
